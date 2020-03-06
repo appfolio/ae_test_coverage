@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module AfTestCoverage
+module AeTestCoverage
   VERSION = '1.0.1'
 end

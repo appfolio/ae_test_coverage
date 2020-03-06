@@ -1,25 +1,25 @@
 # frozen_string_literal: true
 
-module AfTestCoverage
+module AeTestCoverage
   module TestCoverageMethods
     def start_recording_code_coverage
-      if AfTestCoverage.enabled?
-        AfTestCoverage.coverage_collectors.each do |coverage_collector_class, coverage_collector|
+      if AeTestCoverage.enabled?
+        AeTestCoverage.coverage_collectors.each do |coverage_collector_class, coverage_collector|
           coverage_collector.on_start
         end
       end
     end
 
     def write_code_coverage_artifact
-      if AfTestCoverage.enabled?
+      if AeTestCoverage.enabled?
         cleanup_stubs
         test_filename = method(name_of_test).source_location[0]
         FileUtils.mkdir_p(coverage_path)
         f = File.open(coverage_file_name, 'w')
         cleaned_coverage = {}.tap do |cleaned|
-          AfTestCoverage.coverage_collectors.values.each do |coverage_collector|
+          AeTestCoverage.coverage_collectors.values.each do |coverage_collector|
             coverage_collector.covered_files.each do |covered_file, coverage_data|
-              next if AfTestCoverage.exclude_file?(covered_file)
+              next if AeTestCoverage.exclude_file?(covered_file)
               cleaned[covered_file] ||= {}
               cleaned[covered_file][coverage_collector.class.name] = coverage_data
             end
@@ -39,7 +39,7 @@ module AfTestCoverage
     end
 
     def coverage_path
-      AfTestCoverage.config.coverage_path
+      AeTestCoverage.config.coverage_path
     end
 
     def coverage_file_name

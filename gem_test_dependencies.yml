@@ -9,7 +9,7 @@ dependencies:
   value: "../../Gemfile_rails50.lock"
   include: true
 - type: lockfile_group
-  gem_name: af_test_coverage
-  group: af_test_coverage_test
+  gem_name: ae_test_coverage
+  group: ae_test_coverage_test
   lockfile_dir: "../.."
   include: true

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'af_test_coverage/collectors/action_view/asset_tag_helper'
+require 'ae_test_coverage/collectors/action_view/asset_tag_helper'
 
-module AfTestCoverage
+module AeTestCoverage
   module Collectors
     module ActionView
       class AssetTagCollector
@@ -11,7 +11,7 @@ module AfTestCoverage
         def initialize
           unless @@action_view_hook_set
             ActiveSupport.on_load(:action_view) do
-              prepend AfTestCoverage::Collectors::ActionView::AssetTagHelper
+              prepend AeTestCoverage::Collectors::ActionView::AssetTagHelper
             end
             @@action_view_hook_set = true
           end

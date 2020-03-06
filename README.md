@@ -1,4 +1,4 @@
-# AfTestCoverage
+# AeTestCoverage
 
 Tools for collecting per test code coverage for ruby and rails applications
 
@@ -7,7 +7,7 @@ Tools for collecting per test code coverage for ruby and rails applications
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'af_test_coverage'
+gem 'ae_test_coverage'
 ```
 
 And then execute:
@@ -16,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install af_test_coverage
+    $ gem install ae_test_coverage
 
 ## Usage
 
@@ -28,7 +28,7 @@ beginning of testing.
 ```ruby
     require 'test_coverage'
     
-    AfTestCoverage.configure do |config|
+    AeTestCoverage.configure do |config|
       # Setup a way to conditionally enable per test coverage collection
       config.enable_check = Proc.new { !ENV['TEST_COVERAGE_ENABLED'].nil? }
     
@@ -38,13 +38,13 @@ beginning of testing.
       # Decalre which coverage types should be enabled for collection
       # By default all collerctors are enabled
       config.enabled_collector_classes = [
-        AfTestCoverage::Collectors::RubyCoverageCollector,
-        AfTestCoverage::Collectors::ActiveRecord::AssociationCollector,
-        AfTestCoverage::Collectors::ActiveRecord::AttributeWriterCollector,
-        AfTestCoverage::Collectors::ActiveRecord::AttributeReaderCollector,
-        AfTestCoverage::Collectors::ActionView::RenderedTemplateCollector,
-        AfTestCoverage::Collectors::ActionView::AssetTagCollector,
-        AfTestCoverage::Collectors::Webpacker::WebpackerAppCollector
+        AeTestCoverage::Collectors::RubyCoverageCollector,
+        AeTestCoverage::Collectors::ActiveRecord::AssociationCollector,
+        AeTestCoverage::Collectors::ActiveRecord::AttributeWriterCollector,
+        AeTestCoverage::Collectors::ActiveRecord::AttributeReaderCollector,
+        AeTestCoverage::Collectors::ActionView::RenderedTemplateCollector,
+        AeTestCoverage::Collectors::ActionView::AssetTagCollector,
+        AeTestCoverage::Collectors::Webpacker::WebpackerAppCollector
       ]
     
       # Set the location where coverage files will be written 
@@ -59,9 +59,9 @@ beginning of testing.
     
     # Initialize the coverage collectors which will setup any hooks that are
     # needed to collect coverage data 
-    AfTestCoverage.initialize_collectors
+    AeTestCoverage.initialize_collectors
     
-    include AfTestCoverage::TestCoverageMethods
+    include AeTestCoverage::TestCoverageMethods
     
     # For minitest add setup and tear down steps that write the coverage
     # data after each test finishes running 

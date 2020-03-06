@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module AfTestCoverage
+module AeTestCoverage
   module Collectors
     module ActiveRecord
       class ModelFileFinder

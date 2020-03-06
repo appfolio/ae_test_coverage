@@ -3,11 +3,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'af_test_coverage/version'
+require 'ae_test_coverage/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'af_test_coverage'
-  spec.version       = AfTestCoverage::VERSION
+  spec.name          = 'ae_test_coverage'
+  spec.version       = AeTestCoverage::VERSION
   spec.authors       = ['Appfolio']
 
   spec.summary       = 'Tools for collecting code coverage from tests'

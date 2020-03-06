@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module AfTestCoverage
+module AeTestCoverage
   module Collectors
     class RubyCoverageCollector
       @@initialized = false
@@ -21,7 +21,7 @@ module AfTestCoverage
         coverage = Coverage.result(clear: true)
         {}.tap do |coverage_data|
           coverage.each do |file, data|
-            next if AfTestCoverage.exclude_file?(file)
+            next if AeTestCoverage.exclude_file?(file)
 
             called_methods = data[:methods].select { |_, call_count| call_count > 0 }
             oneshot_lines = reject_oneshot_lines_from_methods(called_methods, data[:oneshot_lines])

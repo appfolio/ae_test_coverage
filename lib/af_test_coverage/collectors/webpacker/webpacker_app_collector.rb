@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'af_test_coverage/collectors/webpacker/helpers'
+require 'ae_test_coverage/collectors/webpacker/helpers'
 
-module AfTestCoverage
+module AeTestCoverage
   module Collectors
     module Webpacker
       class WebpackerAppCollector
@@ -11,7 +11,7 @@ module AfTestCoverage
         def initialize
           unless @@hook_set
             ActiveSupport.on_load(:action_view) do
-              prepend AfTestCoverage::Collectors::Webpacker::Helpers
+              prepend AeTestCoverage::Collectors::Webpacker::Helpers
             end
           end
           @@hook_set = true

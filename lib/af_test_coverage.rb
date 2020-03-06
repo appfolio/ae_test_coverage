@@ -3,18 +3,18 @@
 require 'rails/railtie'
 require 'active_record'
 
-require 'af_test_coverage/version'
-require 'af_test_coverage/test_coverage_methods'
+require 'ae_test_coverage/version'
+require 'ae_test_coverage/test_coverage_methods'
 
-require 'af_test_coverage/collectors/ruby_coverage_collector'
-require 'af_test_coverage/collectors/active_record/association_collector'
-require 'af_test_coverage/collectors/active_record/attribute_reader_collector'
-require 'af_test_coverage/collectors/active_record/attribute_writer_collector'
-require 'af_test_coverage/collectors/action_view/asset_tag_collector'
-require 'af_test_coverage/collectors/action_view/rendered_template_collector'
-require 'af_test_coverage/collectors/webpacker/webpacker_app_collector'
+require 'ae_test_coverage/collectors/ruby_coverage_collector'
+require 'ae_test_coverage/collectors/active_record/association_collector'
+require 'ae_test_coverage/collectors/active_record/attribute_reader_collector'
+require 'ae_test_coverage/collectors/active_record/attribute_writer_collector'
+require 'ae_test_coverage/collectors/action_view/asset_tag_collector'
+require 'ae_test_coverage/collectors/action_view/rendered_template_collector'
+require 'ae_test_coverage/collectors/webpacker/webpacker_app_collector'
 
-module AfTestCoverage
+module AeTestCoverage
   class Config
     attr_accessor :enabled_collector_classes
     attr_accessor :webpacker_app_locations
@@ -24,13 +24,13 @@ module AfTestCoverage
 
     def initialize
       @enabled_collector_classes = [
-        AfTestCoverage::Collectors::RubyCoverageCollector,
-        AfTestCoverage::Collectors::ActiveRecord::AssociationCollector,
-        AfTestCoverage::Collectors::ActiveRecord::AttributeWriterCollector,
-        AfTestCoverage::Collectors::ActiveRecord::AttributeReaderCollector,
-        AfTestCoverage::Collectors::ActionView::RenderedTemplateCollector,
-        AfTestCoverage::Collectors::ActionView::AssetTagCollector,
-        AfTestCoverage::Collectors::Webpacker::WebpackerAppCollector
+        AeTestCoverage::Collectors::RubyCoverageCollector,
+        AeTestCoverage::Collectors::ActiveRecord::AssociationCollector,
+        AeTestCoverage::Collectors::ActiveRecord::AttributeWriterCollector,
+        AeTestCoverage::Collectors::ActiveRecord::AttributeReaderCollector,
+        AeTestCoverage::Collectors::ActionView::RenderedTemplateCollector,
+        AeTestCoverage::Collectors::ActionView::AssetTagCollector,
+        AeTestCoverage::Collectors::Webpacker::WebpackerAppCollector
       ]
       @webpacker_app_locations = []
       @file_exclusion_check = Proc.new { |file| false }
@@ -69,11 +69,11 @@ module AfTestCoverage
     end
 
     def exclude_file?(file)
-      AfTestCoverage.config.file_exclusion_check.call(file)
+      AeTestCoverage.config.file_exclusion_check.call(file)
     end
 
     def enabled?
-      AfTestCoverage.config.enable_check.call
+      AeTestCoverage.config.enable_check.call
     end
   end
 end

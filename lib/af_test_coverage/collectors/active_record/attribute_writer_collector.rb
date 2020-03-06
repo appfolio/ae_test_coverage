@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'af_test_coverage/collectors/active_record/model_collector'
-require 'af_test_coverage/collectors/active_record/attribute_writer_helper'
+require 'ae_test_coverage/collectors/active_record/model_collector'
+require 'ae_test_coverage/collectors/active_record/attribute_writer_helper'
 
-module AfTestCoverage
+module AeTestCoverage
   module Collectors
     module ActiveRecord
       class AttributeWriterCollector < ModelCollector

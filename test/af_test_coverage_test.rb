@@ -2,8 +2,8 @@
 
 require 'test_helper'
 
-class AfTestCoverageTest < Minitest::Test
+class AeTestCoverageTest < Minitest::Test
   def test_that_it_has_a_version_number
-    refute_nil ::AfTestCoverage::VERSION
+    refute_nil ::AeTestCoverage::VERSION
   end
 end

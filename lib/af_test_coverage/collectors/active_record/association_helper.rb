@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-module AfTestCoverage
+module AeTestCoverage
   module Collectors
     module ActiveRecord
       module AssociationHelper
         def association(name)
-          AfTestCoverage.coverage_collectors[AssociationCollector].add_covered_models(self.class)
+          AeTestCoverage.coverage_collectors[AssociationCollector].add_covered_models(self.class)
           super
         end
       end

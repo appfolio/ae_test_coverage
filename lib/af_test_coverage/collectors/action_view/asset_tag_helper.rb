@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
-module AfTestCoverage
+module AeTestCoverage
   module Collectors
     module ActionView
       module AssetTagHelper
         def javascript_include_tag(*sources)
-          AfTestCoverage.coverage_collectors[AssetTagCollector].add_covered_assets(*js_sources(sources))
+          AeTestCoverage.coverage_collectors[AssetTagCollector].add_covered_assets(*js_sources(sources))
           super
         end
 
         def stylesheet_link_tag(*sources)
-          AfTestCoverage.coverage_collectors[AssetTagCollector].add_covered_assets(*css_sources(sources))
+          AeTestCoverage.coverage_collectors[AssetTagCollector].add_covered_assets(*css_sources(sources))
           super
         end
 

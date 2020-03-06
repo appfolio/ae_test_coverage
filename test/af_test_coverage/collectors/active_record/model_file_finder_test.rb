@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'test_helper'
-require 'af_test_coverage/collectors/active_record/model_file_finder'
+require 'ae_test_coverage/collectors/active_record/model_file_finder'
 
-module AfTestCoverage
+module AeTestCoverage
   module Collectors
     module ActiveRecord
       class ModelFileFinderTest < ActiveSupport::TestCase

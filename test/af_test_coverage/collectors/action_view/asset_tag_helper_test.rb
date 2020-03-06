@@ -2,16 +2,16 @@
 
 require 'test_helper'
 
-module AfTestCoverage
+module AeTestCoverage
   module Collectors
     module ActionView
       class AssetTagHelperTest < ActiveSupport::TestCase
         def setup
-          AfTestCoverage.stubs(:single_test_coverage_enabled?).returns(true)
-          AfTestCoverage.start_coverage
+          AeTestCoverage.stubs(:single_test_coverage_enabled?).returns(true)
+          AeTestCoverage.start_coverage
 
           @mock_collector = mock
-          AfTestCoverage.coverage_collectors = {
+          AeTestCoverage.coverage_collectors = {
             AssetTagCollector => @mock_collector
           }
         end
@@ -22,7 +22,7 @@ module AfTestCoverage
           view.render(inline: '<% javascript_include_tag "foo" %>')
 
           @mock_collector.expects(:add_covered_assets).with('foo.js')
-          view.extend(AfTestCoverage::Collectors::ActionView::AssetTagHelper)
+          view.extend(AeTestCoverage::Collectors::ActionView::AssetTagHelper)
           view.render(inline: '<% javascript_include_tag "foo" %>')
         end
 
@@ -32,7 +32,7 @@ module AfTestCoverage
           view.render(inline: '<% stylesheet_link_tag "foo" %>')
 
           @mock_collector.expects(:add_covered_assets).with('foo.css')
-          view.extend(AfTestCoverage::Collectors::ActionView::AssetTagHelper)
+          view.extend(AeTestCoverage::Collectors::ActionView::AssetTagHelper)
           view.render(inline: '<% stylesheet_link_tag "foo" %>')
         end
       end

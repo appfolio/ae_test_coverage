@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-module AfTestCoverage
+module AeTestCoverage
   module Collectors
     module ActiveRecord
       module AttributeWriterHelper
         def _write_attribute(attr_name, value)
-          AfTestCoverage.coverage_collectors[AttributeWriterCollector].add_covered_models(self.class)
+          AeTestCoverage.coverage_collectors[AttributeWriterCollector].add_covered_models(self.class)
           super
         end
       end
