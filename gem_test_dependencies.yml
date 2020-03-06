@@ -1,0 +1,15 @@
+---
+version: 1
+repo_root: "../../../.."
+dependencies:
+- type: relative_path
+  value: "../../Gemfile.lock"
+  include: true
+- type: relative_path
+  value: "../../Gemfile_rails50.lock"
+  include: true
+- type: lockfile_group
+  gem_name: af_test_coverage
+  group: af_test_coverage_test
+  lockfile_dir: "../.."
+  include: true

@@ -1,0 +1,12 @@
+# Note: You must restart bin/webpack-dev-server for changes to take effect
+
+default: &default
+  public_output_path: assets
+
+development: &development
+  <<: *default
+
+test: *development
+
+production:
+  <<: *default
