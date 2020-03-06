@@ -1,8 +1,6 @@
 # AfTestCoverage
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/debt_collections_interface`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-Tools for collecting code coverage from tests
+Tools for collecting per test code coverage for ruby and rails applications
 
 ## Installation
 
@@ -22,14 +20,51 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To collect code coverage using the Ruby's build in Coverage module,
+it is important to begin code coverage before the application classes are loaded.
+To accomplish this, it is recommended that the code below be run immediately at the
+beginning of testing.
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/debt_collections_interface.
+```ruby
+    require 'test_coverage'
+    
+    AfTestCoverage.configure do |config|
+      # Setup a way to conditionally enable per test coverage collection
+      config.enable_check = Proc.new { !ENV['TEST_COVERAGE_ENABLED'].nil? }
+    
+      # Configure what files to exclude from code coverage output
+      config.file_exclusion_check = Proc.new { |file| file.include?('/gems/') || file.include?('/lib/ruby/') }
+      
+      # Decalre which coverage types should be enabled for collection
+      # By default all collerctors are enabled
+      config.enabled_collector_classes = [
+        AfTestCoverage::Collectors::RubyCoverageCollector,
+        AfTestCoverage::Collectors::ActiveRecord::AssociationCollector,
+        AfTestCoverage::Collectors::ActiveRecord::AttributeWriterCollector,
+        AfTestCoverage::Collectors::ActiveRecord::AttributeReaderCollector,
+        AfTestCoverage::Collectors::ActionView::RenderedTemplateCollector,
+        AfTestCoverage::Collectors::ActionView::AssetTagCollector,
+        AfTestCoverage::Collectors::Webpacker::WebpackerAppCollector
+      ]
+    
+      # Set the location where coverage files will be written 
+      config.coverage_path = '/tmp/coverage'
+    
+      # If using the WebpackerAppCollector, configure the paths where
+      # webpacker apps can be found.  
+      config.webpacker_app_locations = [
+        File.join('app', 'javascript'),
+      ]
+    end
+    
+    # Initialize the coverage collectors which will setup any hooks that are
+    # needed to collect coverage data 
+    AfTestCoverage.initialize_collectors
+    
+    include AfTestCoverage::TestCoverageMethods
+    
+    # For minitest add setup and tear down steps that write the coverage
+    # data after each test finishes running 
+    setup :start_recording_code_coverage
+    teardown :write_code_coverage_artifact
+```
