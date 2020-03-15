@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'ae_test_coverage/collectors/action_view/asset_tag_helper'
-require 'ae_test_coverage/collectors/sprockets_asset_collector'
 
 module AeTestCoverage
   module Collectors
@@ -29,7 +28,7 @@ module AeTestCoverage
         def covered_files
           test_assets = Set.new(
             @covered_assets_collection.flat_map do |asset_path|
-              AeTestCoverage::Collectors::SprocketsAssetCollector.new(asset_path).collect
+              AeTestCoverage.config.sprockets_asset_collector_class.new(asset_path).collect
             end
           )
           {}.tap do |coverage_data|

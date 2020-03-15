@@ -13,6 +13,7 @@ require 'ae_test_coverage/collectors/active_record/attribute_writer_collector'
 require 'ae_test_coverage/collectors/action_view/asset_tag_collector'
 require 'ae_test_coverage/collectors/action_view/rendered_template_collector'
 require 'ae_test_coverage/collectors/webpacker/webpacker_app_collector'
+require 'ae_test_coverage/collectors/sprockets_asset_collector'
 
 module AeTestCoverage
   class Config
@@ -21,6 +22,7 @@ module AeTestCoverage
     attr_accessor :file_exclusion_check
     attr_accessor :enable_check
     attr_accessor :coverage_path
+    attr_accessor :sprockets_asset_collector_class
 
     def initialize
       @enabled_collector_classes = [
@@ -36,6 +38,7 @@ module AeTestCoverage
       @file_exclusion_check = Proc.new { |file| false }
       @enable_check = Proc.new { false }
       @coverage_path = './coverage'
+      @sprockets_asset_collector_class = AeTestCoverage::Collectors::SprocketsAssetCollector
     end
   end
 
