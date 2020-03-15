@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'ae_test_coverage/collectors/action_view/asset_tag_helper'
+require 'ae_test_coverage/collectors/sprockets_asset_collector'
 
 module AeTestCoverage
   module Collectors
@@ -28,12 +29,7 @@ module AeTestCoverage
         def covered_files
           test_assets = Set.new(
             @covered_assets_collection.flat_map do |asset_path|
-              asset = ::Rails.application.assets[asset_path]
-              # It's not clear why an asset would not be found in the cache.  It happens but it seems to happen rarely and repeatably
-              # If there is a bug with assets changes not triggering a test to run, look here to see if the asset was not included
-              # as a dependency because it was not found in the cache
-              puts "Skipping asset #{asset_path} because it was not found in the cache" if asset.nil?
-              asset.nil? ? [] : asset.metadata[:dependencies].select { |d| d.ends_with?('.js', '.es6', '.css', '.scss') }
+              AeTestCoverage::Collectors::SprocketsAssetCollector.new(asset_path).collect
             end
           )
           {}.tap do |coverage_data|
