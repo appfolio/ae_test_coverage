@@ -21,6 +21,7 @@ module AeTestCoverage
     attr_accessor :file_exclusion_check
     attr_accessor :enable_check
     attr_accessor :coverage_path
+    attr_accessor :sprockets_asset_collector
 
     def initialize
       @enabled_collector_classes = [
@@ -36,6 +37,7 @@ module AeTestCoverage
       @file_exclusion_check = Proc.new { |file| false }
       @enable_check = Proc.new { false }
       @coverage_path = './coverage'
+      @sprockets_asset_collector_class = AeTestCoverage::Collectors::SprocketsAssetCollector
     end
   end
 
