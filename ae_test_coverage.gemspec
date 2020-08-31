@@ -13,10 +13,6 @@ Gem::Specification.new do |spec|
   spec.summary       = 'Tools for collecting code coverage from tests'
   spec.description   = 'Tools for collecting code coverage from tests'
 
-  # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
-  # delete this section to allow pushing this gem to any host.
-  spec.metadata['allowed_push_host'] = 'https://gemini.atl.appfolio.net'
-
   spec.files         = Dir['{lib}/**/*']
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
