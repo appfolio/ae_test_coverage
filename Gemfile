@@ -11,8 +11,3 @@ gem 'simplecov'
 gem 'pry'
 gem 'pry-byebug'
 gem 'webpacker', '4.0.1'
-
-source 'https://gemini.atl.appfolio.net' do
-  gem 'af_gems', '~> 8.0'
-  gem 'af_testing', '~> 14.0'
-end
