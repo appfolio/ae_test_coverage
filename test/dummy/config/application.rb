@@ -13,8 +13,6 @@ Bundler.require(*Rails.groups(assets: %w[development test]))
 
 require "ae_test_coverage"
 
-`mysql -h 127.0.0.1 -uroot -e "DROP DATABASE IF EXISTS AeTestCoveragedummy_test; CREATE DATABASE IF NOT EXISTS AeTestCoveragedummy_test;"`
-
 module AeTestCoverageDummyApp
   class Application < Rails::Application
     config.root = File.expand_path('../', __dir__)
