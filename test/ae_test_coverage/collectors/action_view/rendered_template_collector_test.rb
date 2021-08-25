@@ -10,7 +10,7 @@ module AeTestCoverage
           mock_collector = mock
           mock_collector.expects(:add_covered_templates).never
           context = ::ActionView::LookupContext.new(['test/dummy/app/views'])
-          view = DummyView.new(context, {})
+          view = DummyView.new(context, {}, nil)
           AeTestCoverage.expects(:add_covered_templates).never
           view.render(template: 'foo.html.erb')
 

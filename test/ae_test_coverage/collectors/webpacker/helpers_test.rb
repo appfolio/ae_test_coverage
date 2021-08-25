@@ -21,7 +21,7 @@ module AeTestCoverage
 
         def test_render__javascript_packs_with_chunks_tag__registers_covered_asset
           @mock_collector.expects(:add_covered_globs).never
-          view = DummyView.new(::ActionView::LookupContext.new([]), {})
+          view = DummyView.new(::ActionView::LookupContext.new([]), {}, nil)
           view.extend(::Webpacker::Helper)
           view.render(inline: '<% javascript_packs_with_chunks_tag "foo" %>')
 
@@ -32,7 +32,7 @@ module AeTestCoverage
 
         def test_render__javascript_pack_tag__registers_covered_asset
           @mock_collector.expects(:add_covered_globs).never
-          view = DummyView.new(::ActionView::LookupContext.new([]), {})
+          view = DummyView.new(::ActionView::LookupContext.new([]), {}, nil)
           view.extend(::Webpacker::Helper)
           view.render(inline: '<% javascript_pack_tag "foo" %>')
 
@@ -43,7 +43,7 @@ module AeTestCoverage
 
         def test_render__stylesheet_packs_with_chunks_tag__registers_covered_asset
           @mock_collector.expects(:add_covered_globs).never
-          view = DummyView.new(::ActionView::LookupContext.new([]), {})
+          view = DummyView.new(::ActionView::LookupContext.new([]), {}, nil)
           view.extend(::Webpacker::Helper)
           view.render(inline: '<% stylesheet_packs_with_chunks_tag "foo" %>')
 
@@ -54,7 +54,7 @@ module AeTestCoverage
 
         def test_render__stylesheet_pack_tag__registers_covered_asset
           @mock_collector.expects(:add_covered_globs).never
-          view = DummyView.new(::ActionView::LookupContext.new([]), {})
+          view = DummyView.new(::ActionView::LookupContext.new([]), {}, nil)
           view.extend(::Webpacker::Helper)
           view.render(inline: '<% stylesheet_pack_tag "foo" %>')
 

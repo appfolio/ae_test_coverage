@@ -18,4 +18,8 @@ require 'mocha/minitest'
 
 Rails.backtrace_cleaner.remove_silencers!
 
-class DummyView < ActionView::Base; end
+class DummyView < ActionView::Base
+ def compiled_method_container
+   self.class
+ end
+end
