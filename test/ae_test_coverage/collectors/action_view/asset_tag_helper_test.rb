@@ -18,7 +18,7 @@ module AeTestCoverage
 
         def test_render__javascript_include_tag__registers_covered_asset
           @mock_collector.expects(:add_covered_assets).never
-          view = DummyView.new(::ActionView::LookupContext.new([]), {})
+          view = DummyView.new(::ActionView::LookupContext.new([]), {}, nil)
           view.render(inline: '<% javascript_include_tag "foo" %>')
 
           @mock_collector.expects(:add_covered_assets).with('foo.js')
@@ -28,7 +28,7 @@ module AeTestCoverage
 
         def test_render__stylesheet_include_tag__registers_covered_asset
           @mock_collector.expects(:add_covered_assets).never
-          view = DummyView.new(::ActionView::LookupContext.new([]), {})
+          view = DummyView.new(::ActionView::LookupContext.new([]), {}, nil)
           view.render(inline: '<% stylesheet_link_tag "foo" %>')
 
           @mock_collector.expects(:add_covered_assets).with('foo.css')
