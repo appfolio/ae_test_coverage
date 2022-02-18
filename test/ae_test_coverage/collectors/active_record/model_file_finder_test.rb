@@ -20,7 +20,7 @@ module AeTestCoverage
         end
 
         def test_find_path__model_not_found
-          assert_equal nil, ModelFileFinder.new.file_path(IrregularlyPlacedModel)
+          assert_nil ModelFileFinder.new.file_path(IrregularlyPlacedModel)
         end
 
         def test_find_path__engine_model
