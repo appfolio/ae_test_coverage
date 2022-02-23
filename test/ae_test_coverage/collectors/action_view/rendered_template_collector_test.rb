@@ -12,13 +12,13 @@ module AeTestCoverage
           context = ::ActionView::LookupContext.new(['test/dummy/app/views'])
           view = DummyView.new(context, {}, nil)
           AeTestCoverage.expects(:add_covered_templates).never
-          view.render(template: 'foo.html.erb')
+          view.render(template: 'foo')
 
-          expected_path = view.lookup_context.find_template('foo.html.erb').identifier
+          expected_path = view.lookup_context.find_template('foo').identifier
           mock_collector.expects(:add_covered_templates).with(expected_path)
           AeTestCoverage::Collectors::ActionView::RenderedTemplateCollector.subscribe(mock_collector)
           assert_not_nil AeTestCoverage::Collectors::ActionView::RenderedTemplateCollector.subscriber
-          view.render(template: 'foo.html.erb')
+          view.render(template: 'foo')
         ensure
           AeTestCoverage::Collectors::ActionView::RenderedTemplateCollector.unsubscribe
           assert_nil AeTestCoverage::Collectors::ActionView::RenderedTemplateCollector.subscriber
