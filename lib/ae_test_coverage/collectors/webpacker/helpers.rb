@@ -4,12 +4,12 @@ module AeTestCoverage
   module Collectors
     module Webpacker
       module Helpers
-        def javascript_pack_tag(*names, **options)
+        def append_javascript_pack_tag(*names, **options)
           add_to_coverage(names)
           super
         end
 
-        def javascript_packs_with_chunks_tag(*names, **options)
+        def javascript_pack_tag(*names, **options)
           add_to_coverage(names)
           super
         end

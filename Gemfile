@@ -12,7 +12,7 @@ source 'https://rubygems.org' do
   gem 'rake', '>= 13', '< 14'
   gem 'rails', '>= 6', '< 7.1'
   gem 'simplecov', '>= 0.21', '< 1', group: :test, require: false
-  gem 'webpacker', ' >= 4', '< 6'
+  gem 'shakapacker', ' >= 6', '< 7'
 end
 
 gemspec
