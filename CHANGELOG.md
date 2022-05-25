@@ -6,6 +6,8 @@
 
 **Merged pull requests:**
 
+- ci: fix failing tests [\#7](https://github.com/appfolio/ae_test_coverage/pull/7) ([davidacevedo](https://github.com/davidacevedo))
+- Support shakapacker [\#6](https://github.com/appfolio/ae_test_coverage/pull/6) ([davidacevedo](https://github.com/davidacevedo))
 - Appraise rubies 2.6.9, 2.7.5, 3.1.0, and Rails 7 [\#5](https://github.com/appfolio/ae_test_coverage/pull/5) ([Maimer](https://github.com/Maimer))
 
 ## [v1.2.0](https://github.com/appfolio/ae_test_coverage/tree/v1.2.0) (2021-08-26)
