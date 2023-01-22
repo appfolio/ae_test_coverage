@@ -1,6 +1,6 @@
 # AeTestCoverage
 
-Tools for collecting per test code coverage for Ruby applications. Read more about the motivation for the gem and how it's used at Appfolio [here](https://engineering.appfolio.com/appfolio-engineering/2020/5/4/using-code-coverage-data-to-speed-up-continuous-integration-and-reduce-costs).
+Tools for collecting per test code coverage for Ruby applications. Read more about the motivation for the gem and how it's used at Appfolio [here](https://engineering.appfolio.com/appfolio-engineering/2020/5/4/using-code-coverage-data-to-speed-up-continuous-integration-and-reduce-costs). This project has been archived and is no longer receiving updates, but will remain publicly accessible for open-source demonstration purposes.
 
 ## Installation
 
