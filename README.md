@@ -1,6 +1,6 @@
 # AeTestCoverage
 
-Tools for collecting per test code coverage for ruby and rails applications.  Read more about the motivation for the gem and how is is used at Appfolio [here](https://engineering.appfolio.com/appfolio-engineering/2020/5/4/using-code-coverage-data-to-speed-up-continuous-integration-and-reduce-costs)
+Tools for collecting per test code coverage for Ruby applications. Read more about the motivation for the gem and how it's used at Appfolio [here](https://engineering.appfolio.com/appfolio-engineering/2020/5/4/using-code-coverage-data-to-speed-up-continuous-integration-and-reduce-costs).
 
 ## Installation
 
@@ -12,17 +12,17 @@ gem 'ae_test_coverage'
 
 And then execute:
 
-    $ bundle
+    bundle
 
 Or install it yourself as:
 
-    $ gem install ae_test_coverage
+    gem install ae_test_coverage
 
 ## Usage
 
 To collect code coverage using the Ruby's build in Coverage module,
-it is important to begin code coverage before the application classes are loaded.
-To accomplish this, it is recommended that the code below be run immediately at the
+it's important to begin code coverage before the application classes are loaded.
+To accomplish this, it's recommended that the code below be run immediately at the
 beginning of testing.
 
 ```ruby
